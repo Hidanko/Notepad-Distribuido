@@ -39,8 +39,8 @@
         </Label>
             <TextArea fx:id="text" layoutX="14.0" layoutY="14.0" onKeyPressed="#teclaPressionada" prefHeight="316.0" prefWidth="610.0" />
             <TextField layoutX="14.0" layoutY="336.0" prefHeight="25.0" prefWidth="169.0" />
-            <Button fx:id="buttonConectar" layoutX="193.0" layoutY="336.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="Conectar" />
-            <Button fx:id="buttonSincronizar" layoutX="549.0" layoutY="336.0" mnemonicParsing="false" text="Sincronizar" />
+            <Button fx:id="buttonConectar" layoutX="193.0" layoutY="336.0" mnemonicParsing="false" onAction="#conectar" prefHeight="25.0" prefWidth="69.0" text="Conectar" />
+            <Button fx:id="buttonSincronizar" layoutX="549.0" layoutY="336.0" mnemonicParsing="false" onAction="#sincronizar" text="Sincronizar" />
       </children>
     </AnchorPane>
   </children>

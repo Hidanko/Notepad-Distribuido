@@ -4,6 +4,6 @@ import java.rmi.Remote;
 
 public interface ServidorInterface extends Remote {
 
-    boolean conectar();
+    boolean conectar(String endereco, int porta);
     boolean enviarMensagem();
 }

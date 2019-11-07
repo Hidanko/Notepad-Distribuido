@@ -1,6 +1,8 @@
 package br.com.nemeth.RMI;
 
-public class Mensagem {
+import java.io.Serializable;
+
+public final class Mensagem implements Serializable {
     private int idSerial;
     private int idEvento;
     private String mensagem;

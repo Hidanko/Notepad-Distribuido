@@ -34,6 +34,17 @@ public class Controller {
     @FXML
     void teclaPressionada(KeyEvent event) {
         System.out.println(event.getText());
+        Mensagem m = new Mensagem(servidor.getId(), text.getText(), event.getText() );
+
+        for (String: servidor.getServidores()) {
+            Registry registry = LocateRegistry.getRegistry(endereco, 1099);
+            ServidorInterface si = (ServidorInterface) registry.lookup("Main");
+            if (si != null){
+                if (si.enviarMensagem(m)){
+                    throw new Exception();
+                }
+            }
+        }
     }
 
     @FXML
@@ -43,7 +54,10 @@ public class Controller {
 
     @FXML
     void sincronizar(ActionEvent event) {
-        System.out.println("conectar");
 
+    }
+
+    public addCaractere(String caractere){
+        text.setText(text.getText()+caractere);
     }
 }

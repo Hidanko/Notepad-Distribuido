@@ -31,11 +31,6 @@ public class Servidor implements ServidorInterface {
     }
 
 
-    @Override
-    public boolean enviarMensagem() {
-        return false;
-    }
-
 
     private boolean ping(String endereco, int porta){
         System.out.println("Pigando "+endereco + "" + porta);
@@ -57,6 +52,14 @@ public class Servidor implements ServidorInterface {
 
     public List<String> getServidores() {
         return servidores;
+    }
+
+    @Override
+    public boolean enviarMensagem(Mensagem mensagem) {
+        if (mensagem.getIdEvento <= controller.getText().size()){
+            return false;
+        }
+        return true;
     }
 
     @Override

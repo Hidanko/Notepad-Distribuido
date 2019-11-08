@@ -34,13 +34,22 @@ public class Controller {
     @FXML
     void teclaPressionada(KeyEvent event) {
         System.out.println(event.getText());
-        Mensagem m = new Mensagem(servidor.getId(), text.getText(), event.getText() );
+        Mensagem m = new Mensagem(servidor.getId(), text.getText(), event.getText());
 
         for (String: servidor.getServidores()) {
             Registry registry = LocateRegistry.getRegistry(endereco, 1099);
             ServidorInterface si = (ServidorInterface) registry.lookup("Main");
             if (si != null){
-                if (si.enviarMensagem(m)){
+                if (!si.enviarMensagem(m)){
+                    throw new Exception();
+                }
+            }
+        }
+        for (String: servidor.getServidores()) {
+            Registry registry = LocateRegistry.getRegistry(endereco, 1099);
+            ServidorInterface si = (ServidorInterface) registry.lookup("Main");
+            if (si != null){
+                if (si.confirma(m)){
                     throw new Exception();
                 }
             }
